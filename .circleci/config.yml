@@ -11,7 +11,7 @@ jobs:
             pip install -r requirements.txt
       - run:
           name: Run unit test
-          comand: 
+          command: 
             python3 -m pytest
       - run:
           name: Run Flake8
