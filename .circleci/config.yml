@@ -1,0 +1,24 @@
+version 2.1
+jobs:
+  run_tests:
+    docker:
+      - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run:
+          name: Install python packages
+          command:
+            pip install -r requirements.txt
+      - run:
+          name: Run unit test
+          comand: 
+            python3 -m pytest
+      - run:
+          name: Run Flake8
+          command:
+            python3 -m flake8
+workflows:
+  build_test:
+    jobs:
+      - run_tests
+
